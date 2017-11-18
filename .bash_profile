@@ -1,8 +1,26 @@
+# Activate tmux
+tmux new -s "👾 " &> /dev/null
+tmux attach &> /dev/null
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
+
 # Add ~bin to $PATH
 export PATH="$HOME/bin:$PATH";
+export PATH="/usr/local/lib:$PATH";
+
+# Set CLICOLOR if you want Ansi Colors in iTerm2
+export CLICOLOR=1
+
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+
+# Enable Base16 Shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Load the shell dotfiles
-for file in ~/.{path,bash_prompt,exports}; do
+for file in ~/.{path,bash_prompt,exports,aliases}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

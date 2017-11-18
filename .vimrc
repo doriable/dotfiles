@@ -1,16 +1,25 @@
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+
+call plug#end()
+
+
 " Enable syntax highlighting
 syntax on
-
 " Use Base16 dark theme
-colorscheme base16-default-light
-
+let base16colorspace=256
+colorscheme base16-default-dark
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
-
 " Make Vim more useful
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
@@ -20,14 +29,15 @@ set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Change mapleader
-let mapleader=","
+let mapleader=','
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
-
+" Make tabs as wide as two spaces
+" set tabstop=2
 " Respect modeline in files
-set modeline
-set modelines=4
+" set modeline
+" set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
@@ -35,11 +45,9 @@ set secure
 set number
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -65,9 +73,24 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-if exists("&relativenumber")
+if exists('&relativenumber')
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" Airline configs
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled=1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod=':t'
+
+" NERDTree
+let NERDTreeShowHidden=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeQuitOnOpen=1
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NerdTreeType') && b:NERDTreeType == 'primary') | q | endif

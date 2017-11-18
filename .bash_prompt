@@ -6,6 +6,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
@@ -37,19 +40,12 @@ else
 	yellow="\e[1;33m";
 fi;
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-	userStyle="${purple}";
-else
-	userStyle="${cyan}";
-fi;
-
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] @ ";
+PS1="\[${violet}\]\$(__git_ps1 '(%s)')"; # Git repository details
+PS1+="🐱";
 PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(__git_ps1 ' (%s)')"; # Git repository details
+PS1+="\[\033]0;\W\007\]"; # working directory base name
+PS1+="\[${white}\] @ ";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
