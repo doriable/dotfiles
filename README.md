@@ -3,9 +3,9 @@
 ## Introduction
 This is a backup of my dotfiles. Changes to this repository are made programmatically using the following scripts:
 + `backup.sh`: scans this repo, given the existing files, pulls from my `$HOME` and copies them here
++ `sync.sh`: updates your `$HOME` to match the files in this directory
 
 ## Upcoming
-+ `sync.sh`: updates your `$HOME` to match the files in this directory
 + `add.sh`: given a file name, looks `$HOME` for the file and copies them here. If a file is already in this repo, then it will ask the user if they would like to replace the file
 
 ## Credits
