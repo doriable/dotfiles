@@ -1,21 +1,5 @@
-" Plugins
-call plug#begin('~/.vim/plugged')
-
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go'
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-
-call plug#end()
-
-
 " Enable syntax highlighting
 syntax on
-" Use Base16 dark theme
-let base16colorspace=256
-colorscheme base16-default-dark
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
 " Make Vim more useful
@@ -79,6 +63,12 @@ if exists('&relativenumber')
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" Base16 shell colours
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
 
 " Airline configs
 " Enable the list of buffers

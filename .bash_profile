@@ -1,9 +1,9 @@
 # Activate tmux
-tmux new -s "👾 " &> /dev/null
-tmux attach &> /dev/null
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# tmux new -s "👾 " &> /dev/null
+# tmux attach &> /dev/null
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi
 
 # Add ~bin to $PATH
 export PATH="$HOME/bin:$PATH";
