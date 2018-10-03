@@ -1,3 +1,6 @@
+# Set default editor for git to nvim
+git config --global core.editor "nvim"
+
 # Activate tmux
 # tmux new -s "👾 " &> /dev/null
 # tmux attach &> /dev/null
