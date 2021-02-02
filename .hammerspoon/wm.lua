@@ -3,7 +3,7 @@ local This = {}
 local GRID = 4
 local MID = GRID / 2
 hs.grid.setGrid(GRID .. 'x' .. GRID)
-hs.grid.setMargins({3, 3})
+hs.grid.setMargins({0, 0})
 hs.window.animationDuration = 0
 
 This.left = {x = 0, y = 0, w = MID, h = GRID}
