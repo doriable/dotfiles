@@ -17,4 +17,4 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # yubikey auth socket
-export SSH_AUTH_SOCK="/usr/local/var/run/yubikey-agent.sock"'
+export SSH_AUTH_SOCK="/usr/local/var/run/yubikey-agent.sock"
