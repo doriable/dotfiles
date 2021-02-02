@@ -1,3 +1,4 @@
 # Accessing go development environment
 alias gocode="cd $GOPATH/src"
 alias confroom="gocode && cd github.com/doriable/conf-room-scheduler"
+alias vim="nvim"

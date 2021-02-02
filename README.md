@@ -6,7 +6,7 @@ This is a backup of my dotfiles. Changes to this repository are made programmati
 + `sync.sh`: updates your `$HOME` to match the files in this directory
 
 ## Upcoming
-+ `add.sh`: given a file name, looks `$HOME` for the file and copies them here. If a file is already in this repo, then it will ask the user if they would like to replace the file
++ Sync Kitty configs and git submodule for base16 shell.
 
 ## Credits
 Scripts used in this repository:
@@ -17,3 +17,4 @@ Inspired by the following:
 + [Mathias's Dotfiles](https://github.com/mathiasbynens/dotfiles)
 + [Base16 Vim](https://github.com/chriskempson/base16-vim)
 + [JCorbin's Home](https://github.com/jcorbin/home)
++ [Hammerspoon Window Management](https://medium.com/@jhkuperus/window-management-with-hammerspoon-personal-productivity-c77adc436888)
